@@ -1,5 +1,5 @@
 //
-//  MealViewController.swift
+//  CardViewController.swift
 //  FoodTracker
 //
 //  Created by Nandini  on 6/26/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class CardViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: Properties
     

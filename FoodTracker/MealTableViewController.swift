@@ -113,7 +113,7 @@ class MealTableViewController: UITableViewController {
         
         if segue.identifier == "ShowDetail" {
             
-            let mealDetailViewController = segue.destinationViewController as! MealViewController
+            let mealDetailViewController = segue.destinationViewController as! CardViewController
             
             //Get the cell that generated this segue.
             if let selectedMealCell = sender as? MealTableViewCell {
@@ -129,7 +129,7 @@ class MealTableViewController: UITableViewController {
     
     @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
 
-        if let sourceViewController = sender.sourceViewController as? MealViewController, meal = sourceViewController.meal {
+        if let sourceViewController = sender.sourceViewController as? CardViewController, meal = sourceViewController.meal {
             
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 // Update an existing meal.
