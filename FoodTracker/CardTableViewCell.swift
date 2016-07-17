@@ -1,5 +1,5 @@
 //
-//  MealTableViewCell.swift
+//  CardTableViewCell.swift
 //  FoodTracker
 //
 //  Created by Nandini  on 7/6/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MealTableViewCell: UITableViewCell {
+class CardTableViewCell: UITableViewCell {
     
     // MARK: Properties
     @IBOutlet weak var nameLabel: UILabel!

@@ -60,8 +60,8 @@ class CardTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         // Table view cells are reused and should be dequeued using a cell identifier.
-        let cellIdentifier = "MealTableViewCell"
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MealTableViewCell
+        let cellIdentifier = "CardTableViewCell"
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CardTableViewCell
         
         // Fetches the appropriate meal for the data source layout.
         let meal = meals[indexPath.row]
@@ -116,7 +116,7 @@ class CardTableViewController: UITableViewController {
             let mealDetailViewController = segue.destinationViewController as! CardViewController
             
             //Get the cell that generated this segue.
-            if let selectedMealCell = sender as? MealTableViewCell {
+            if let selectedMealCell = sender as? CardTableViewCell {
                 let indexPath = tableView.indexPathForCell(selectedMealCell)!
                 let selectedMeal = meals[indexPath.row]
                 mealDetailViewController.meal = selectedMeal
