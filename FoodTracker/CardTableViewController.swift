@@ -1,5 +1,5 @@
 //
-//  MealTableViewController.swift
+//  CardTableViewController.swift
 //  FoodTracker
 //
 //  Created by Nandini  on 7/6/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MealTableViewController: UITableViewController {
+class CardTableViewController: UITableViewController {
     
     // MARK: Properties
     var meals = [Meal]()

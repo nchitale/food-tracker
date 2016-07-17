@@ -17,7 +17,7 @@
 		20D2288F1D2DAF5F00147B2F /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2288E1D2DAF5F00147B2F /* Meal.swift */; };
 		20D228901D2DAF5F00147B2F /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2288E1D2DAF5F00147B2F /* Meal.swift */; };
 		20D228921D2DBAE000147B2F /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D228911D2DBAE000147B2F /* MealTableViewCell.swift */; };
-		20D228941D2DBF1E00147B2F /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D228931D2DBF1E00147B2F /* MealTableViewController.swift */; };
+		20D228941D2DBF1E00147B2F /* CardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D228931D2DBF1E00147B2F /* CardTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +44,7 @@
 		20D2288C1D2D986500147B2F /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		20D2288E1D2DAF5F00147B2F /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		20D228911D2DBAE000147B2F /* MealTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
-		20D228931D2DBF1E00147B2F /* MealTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
+		20D228931D2DBF1E00147B2F /* CardTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +91,7 @@
 				20D2288E1D2DAF5F00147B2F /* Meal.swift */,
 				20D2288C1D2D986500147B2F /* RatingControl.swift */,
 				205279091D2089A500FA234B /* Main.storyboard */,
-				20D228931D2DBF1E00147B2F /* MealTableViewController.swift */,
+				20D228931D2DBF1E00147B2F /* CardTableViewController.swift */,
 				20D228911D2DBAE000147B2F /* MealTableViewCell.swift */,
 				2052790C1D2089A500FA234B /* Assets.xcassets */,
 				2052790E1D2089A500FA234B /* LaunchScreen.storyboard */,
@@ -213,7 +213,7 @@
 				205279081D2089A500FA234B /* CardViewController.swift in Sources */,
 				20D2288D1D2D986500147B2F /* RatingControl.swift in Sources */,
 				205279061D2089A500FA234B /* AppDelegate.swift in Sources */,
-				20D228941D2DBF1E00147B2F /* MealTableViewController.swift in Sources */,
+				20D228941D2DBF1E00147B2F /* CardTableViewController.swift in Sources */,
 				20D228921D2DBAE000147B2F /* MealTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
