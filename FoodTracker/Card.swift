@@ -1,5 +1,5 @@
 //
-//  Meal.swift
+//  Card.swift
 //  FoodTracker
 //
 //  Created by Nandini  on 7/6/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Meal: NSObject, NSCoding {
+class Card: NSObject, NSCoding {
     
     // MARK: Properties
     
@@ -24,7 +24,7 @@ class Meal: NSObject, NSCoding {
     
     // MARK: Archiving Paths
     static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("meals")
+    static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("cards")
     
     // MARK: Initialization
     
@@ -53,7 +53,7 @@ class Meal: NSObject, NSCoding {
         
         let name = aDecoder.decodeObjectForKey(PropertyKey.nameKey) as! String
         
-        // Because photo is an optional property of Meal, use conditional cast.
+        // Because photo is an optional property of Card, use conditional cast.
         let photo = aDecoder.decodeObjectForKey(PropertyKey.photoKey) as? UIImage
         
         let rating = aDecoder.decodeIntegerForKey(PropertyKey.ratingKey)

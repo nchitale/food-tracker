@@ -11,7 +11,7 @@ import UIKit
 class CardTableViewController: UITableViewController {
     
     // MARK: Properties
-    var meals = [Meal]()
+    var cards = [Card]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,27 +19,27 @@ class CardTableViewController: UITableViewController {
         // Use the edit buton item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem() //special type of bar button with editing behavior built in
         
-        // Load any saved meals, otherwise load sample data.
-        if let savedMeals = loadMeals() {
-            meals += savedMeals
+        // Load any saved cards, otherwise load sample data.
+        if let savedCards = loadCards() {
+            cards += savedCards
         }
         else {
             // Load the sample data.
-            loadSampleMeals()
+            loadSampleCards()
         }
     }
     
-    func loadSampleMeals() {
-        let photo1 = UIImage(named: "meal1")!
-        let meal1 = Meal(name: "Caprese Salad", photo: photo1, rating: 4)!
+    func loadSampleCards() {
+        let photo1 = UIImage(named: "card1")!
+        let card1 = Card(name: "Caprese Salad", photo: photo1, rating: 4)!
         
-        let photo2 = UIImage(named: "meal2")!
-        let meal2 = Meal(name: "Chicken and Potatoes", photo: photo2, rating: 5)!
+        let photo2 = UIImage(named: "card2")!
+        let card2 = Card(name: "Chicken and Potatoes", photo: photo2, rating: 5)!
         
-        let photo3 = UIImage(named: "meal3")!
-        let meal3 = Meal(name: "Pasta with Meatballs", photo: photo3, rating: 3)!
+        let photo3 = UIImage(named: "card3")!
+        let card3 = Card(name: "Pasta with Meatballs", photo: photo3, rating: 3)!
         
-        meals += [meal1, meal2, meal3]
+        cards += [card1, card2, card3]
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,7 +54,7 @@ class CardTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return meals.count
+        return cards.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -63,12 +63,12 @@ class CardTableViewController: UITableViewController {
         let cellIdentifier = "CardTableViewCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CardTableViewCell
         
-        // Fetches the appropriate meal for the data source layout.
-        let meal = meals[indexPath.row]
+        // Fetches the appropriate card for the data source layout.
+        let card = cards[indexPath.row]
         
-        cell.nameLabel.text = meal.name
-        cell.photoImageView.image = meal.photo
-        cell.ratingControl.rating = meal.rating
+        cell.nameLabel.text = card.name
+        cell.photoImageView.image = card.photo
+        cell.ratingControl.rating = card.rating
 
         return cell
     }
@@ -83,8 +83,8 @@ class CardTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
-            meals.removeAtIndex(indexPath.row) //removes Meal object to be deleted from meals
-            saveMeals()
+            cards.removeAtIndex(indexPath.row) //removes Card object to be deleted from cards
+            saveCards()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -113,39 +113,39 @@ class CardTableViewController: UITableViewController {
         
         if segue.identifier == "ShowDetail" {
             
-            let mealDetailViewController = segue.destinationViewController as! CardViewController
+            let cardDetailViewController = segue.destinationViewController as! CardViewController
             
             //Get the cell that generated this segue.
-            if let selectedMealCell = sender as? CardTableViewCell {
-                let indexPath = tableView.indexPathForCell(selectedMealCell)!
-                let selectedMeal = meals[indexPath.row]
-                mealDetailViewController.meal = selectedMeal
+            if let selectedCardCell = sender as? CardTableViewCell {
+                let indexPath = tableView.indexPathForCell(selectedCardCell)!
+                let selectedCard = cards[indexPath.row]
+                cardDetailViewController.card = selectedCard
             }
         }
         else if segue.identifier == "AddItem" {
-            print("Adding new meal.")
+            print("Adding new card.")
         }
     }
     
-    @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
+    @IBAction func unwindToCardList(sender: UIStoryboardSegue) {
 
-        if let sourceViewController = sender.sourceViewController as? CardViewController, meal = sourceViewController.meal {
+        if let sourceViewController = sender.sourceViewController as? CardViewController, card = sourceViewController.card {
             
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
-                // Update an existing meal.
-                meals[selectedIndexPath.row] = meal
+                // Update an existing card.
+                cards[selectedIndexPath.row] = card
                 tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
             }
             
             else {
-                // Add a new meal.
-                let newIndexPath = NSIndexPath(forRow: meals.count, inSection: 0)
-                meals.append(meal)
+                // Add a new card.
+                let newIndexPath = NSIndexPath(forRow: cards.count, inSection: 0)
+                cards.append(card)
                 tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
             }
             
-            // Save the meals.
-            saveMeals()
+            // Save the cards.
+            saveCards()
             
         }
         
@@ -153,15 +153,15 @@ class CardTableViewController: UITableViewController {
     
     // MARK: NSCoding
     
-    func saveMeals() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(meals, toFile: Meal.ArchiveURL.path!)
+    func saveCards() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(cards, toFile: Card.ArchiveURL.path!)
         if !isSuccessfulSave {
-            print("Failed to save meals...")
+            print("Failed to save cards...")
         }
     }
     
-    func loadMeals() -> [Meal]? { //either returns an array of Meal objects or returns nil
-        return NSKeyedUnarchiver.unarchiveObjectWithFile(Meal.ArchiveURL.path!) as? [Meal]
+    func loadCards() -> [Card]? { //either returns an array of Card objects or returns nil
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(Card.ArchiveURL.path!) as? [Card]
     }
 
 }

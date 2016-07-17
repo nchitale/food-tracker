@@ -7,7 +7,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Your Meals-->
+        <!--Your Cards-->
         <scene sceneID="gZj-tP-hxz">
             <objects>
                 <tableViewController id="D4a-ld-ZJf" customClass="CardTableViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -51,7 +51,7 @@
                             <outlet property="delegate" destination="D4a-ld-ZJf" id="yu6-dv-EIL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Your Meals" id="WDR-IB-Zc0">
+                    <navigationItem key="navigationItem" title="Your Cards" id="WDR-IB-Zc0">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Mwa-aJ-rNj">
                             <connections>
                                 <segue destination="OHI-Et-dgH" kind="presentation" identifier="AddItem" id="1MM-kY-UVB"/>
@@ -63,7 +63,7 @@
             </objects>
             <point key="canvasLocation" x="374" y="337"/>
         </scene>
-        <!--New Meal-->
+        <!--New Card-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CardViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -78,7 +78,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="QlH-XU-9ip">
                                 <rect key="frame" x="20" y="80" width="560" height="418"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Meal Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KV5-6p-JLB">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Card Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KV5-6p-JLB">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
@@ -111,7 +111,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="QlH-XU-9ip" secondAttribute="trailing" id="rfo-PU-WDR"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="New Meal" id="bDN-oe-eRc">
+                    <navigationItem key="navigationItem" title="New Card" id="bDN-oe-eRc">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="71k-XF-vqd">
                             <connections>
                                 <action selector="cancel:" destination="BYZ-38-t0r" id="l8V-KG-Hbf"/>
@@ -119,7 +119,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="X87-R7-MfP">
                             <connections>
-                                <segue destination="239-g7-pQa" kind="unwind" unwindAction="unwindToMealList:" id="Fi0-zr-f0h"/>
+                                <segue destination="239-g7-pQa" kind="unwind" unwindAction="unwindToCardList:" id="Fi0-zr-f0h"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

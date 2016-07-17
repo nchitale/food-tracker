@@ -18,11 +18,11 @@ class CardViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     /*
-        This value is either passed by 'MealTableViewController' in 'prepareForSegue(_:sender:)'
-        or constructed as part of adding a new meal. 
+        This value is either passed by 'CardTableViewController' in 'prepareForSegue(_:sender:)'
+        or constructed as part of adding a new card. 
     */
     
-    var meal: Meal?
+    var card: Card?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,16 +30,16 @@ class CardViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         // Handle the text field's user input through delegate callbacks.
         nameTextField.delegate = self
         
-        // Set up views if editing an existing Meal.
-        if let meal = meal { //as opposed to meal = nil
-            navigationItem.title = meal.name
-            nameTextField.text = meal.name
-            photoImageView.image = meal.photo
-            ratingControl.rating = meal.rating
+        // Set up views if editing an existing Card.
+        if let card = card { //as opposed to card = nil
+            navigationItem.title = card.name
+            nameTextField.text = card.name
+            photoImageView.image = card.photo
+            ratingControl.rating = card.rating
         }
         
-        // Enable the Save button only if the text field has a valid Meal name.
-        checkValidMealName()
+        // Enable the Save button only if the text field has a valid Card name.
+        checkValidCardName()
     }
 
     /* Not needed for our app
@@ -64,14 +64,14 @@ class CardViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         saveButton.enabled = false
     }
     
-    func checkValidMealName() {
+    func checkValidCardName() {
         // Disable the Save button if the text field is empty.
         let text = nameTextField.text ?? ""
         saveButton.enabled = !text.isEmpty
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
-        checkValidMealName()
+        checkValidCardName()
         navigationItem.title = textField.text
     }
     
@@ -100,14 +100,14 @@ class CardViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     @IBAction func cancel(sender: UIBarButtonItem) {
         
         //Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
-        let isPresentingInAddMealMode = presentingViewController is UINavigationController //tells you if the pVC is a UINC or not
+        let isPresentingInAddCardMode = presentingViewController is UINavigationController //tells you if the pVC is a UINC or not
         
-        if isPresentingInAddMealMode {
+        if isPresentingInAddCardMode {
             dismissViewControllerAnimated(true, completion: nil)
         }
         
-        else { //meal scene was pushed onto nav stack on top of meal list scene
-            navigationController!.popViewControllerAnimated(true) //pops current VC (meal scene) off the nav stack & animates the transition
+        else { //card scene was pushed onto nav stack on top of card list scene
+            navigationController!.popViewControllerAnimated(true) //pops current VC (card scene) off the nav stack & animates the transition
         }
     }
     
@@ -118,8 +118,8 @@ class CardViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
             let photo = photoImageView.image
             let rating = ratingControl.rating
             
-            // Set the meal to be passed to MealTableViewController after the unwind segue.
-            meal = Meal(name: name, photo: photo, rating: rating)
+            // Set the card to be passed to CardTableViewController after the unwind segue.
+            card = Card(name: name, photo: photo, rating: rating)
         }
     }
 
